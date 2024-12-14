@@ -13,6 +13,6 @@ def baixar_video(url, formato_saida='mp4', qualidade='best'):
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=True)
             arquivo_saida = ydl.prepare_filename(info)
-            return arquivo_saida
+            return arquivo_saida.replace("\\", "/")
     except Exception as e:
         raise Exception(f"Erro ao baixar vídeo: {e}")
