@@ -9,6 +9,7 @@ def baixar_video(url, formato_saida='mp4', qualidade='best'):
             'format': qualidade,
             'outtmpl': './downloads/%(title)s.%(ext)s',
             'merge_output_format': formato_saida,
+            'cookies': './cookies.txt',
         }
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info = ydl.extract_info(url, download=True)
